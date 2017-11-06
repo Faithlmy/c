@@ -13,7 +13,7 @@
 	  c = getchar();
 		putchar(c);
 
-	main(){
+	int main(){
 		char s = 'B';
 		putchar(s);
 		return 0;
