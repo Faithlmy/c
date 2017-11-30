@@ -1,0 +1,62 @@
+1、结构体：
+	1) 结构体是一种自己可以定义的数据类型：
+	2) 特点：
+		1> 都是由很多元素组成
+		2> 各个元素在内存中是连续的
+		3> 数组中各个元素的数据类型相同，结构体中元素的数据类型不同
+
+	3) 定义：
+		1> 一般形式：
+			strcut st
+			{
+				char name[10];
+				cahr sex;
+				int age;
+				float score;
+			};
+		2> 定义结构体同时定义该类型的变量：
+			struct [st]
+			{
+				cahr name[10];
+				char sex;
+				int age;
+				float score;
+			}s1, *ps, ss[5];//普通变量, 指针, 数组
+
+		3> 先结构体，后变量
+			struct st
+			{
+				char name[10];
+				char sex;
+				int age;
+				float score;
+			};
+			struct st s1,*ps,ss[5];
+
+		4> typedef起别名
+			typedef st [st]
+			{
+				char name[10];
+				cahr sex;
+				int age;
+				float score;
+			}ST;
+			ST s1,*ps,ss[5];
+
+		5> 结构体变量赋初值：
+			struct [student]
+			{
+			    char name[10];
+				char sex;
+				int age;
+				float score;
+			}stu[2]={{"Li", 'F', 22, 90.5}, {"Su", 'M', 20, 88.5}}; 
+
+		6> 引用结构体变量中的成员：
+			1) 结构体变量名. 成员名：      stu1.name
+
+			2) 结构体指针变量->成员名：    ps->name
+
+			3) (*结构体指针变量). 成员名： (*ps).name
+
+			4) 结构体变量数组名. 成员名： stu[0].name
