@@ -62,10 +62,10 @@ int SL_Insert(SList list, int pos, Item itme)
 		p = p->next;
 		i++;
 	}
-	if(p==null || i>pos-1)
+	if(p==NULL || i>pos-1)
 		return -1;
 	q = (Node *)malloc(sizeof(Node));
-	if(q!=null)
+	if(q!=NULL)
 	{
 		q->itme = itme;
 		q->next = p->next;
@@ -93,12 +93,12 @@ int SL_GetItem(SList list, int pos, Item *p_item)
 
 	p = list;
 	i = 0;
-	while(p!=null && i<pos)
+	while(p!=NULL && i<pos)
 	{
 		p = p->next;
 		i++;
 	}
-	if((p==null) || (i>pos))
+	if((p==NULL) || (i>pos))
 	{
 		return -1;	
 	}
@@ -124,17 +124,17 @@ int SL_Delete(SList list, int pos, Item *P_item)
 	int i;
 	p = list;
 	i=0;
-	while(p!=null && i<pos-1)
+	while(p!=NULL && i<pos-1)
 	{
 		p = p->next;
 		i++;
 	}
-	if(p->next != null ||i>pos-1)
+	if(p->next != NULL ||i>pos-1)
 	{
 		return -1;	
 	}
 	q = p->next;
-	if(p_item != null)
+	if(p_item != NULL)
 		*p_item = q->itme;
 	free(q);
 	return 1;
@@ -153,15 +153,15 @@ int SL_Delete(SList list, int pos, Item *P_item)
  * */
 int SL_SetItem(SList list, int pos, Item itme)
 {
-	PNode p =null;
+	PNode p =NULL;
 	p = list;
 	i = 0;
-	while(p!=null && i<pos)
+	while(p!=NULL && i<pos)
 	{
 		p = p->next;
 		i++;
 	}
-	if(p==null || i>pos)
+	if(p==NULL || i>pos)
 		return -1;
 	p->itme = itme;
 	return 1;
@@ -207,4 +207,58 @@ int SL_Find(SList list, int *pos, Item itme)
  功能 
  该函数的功能是判断链表list是否为空表。
  * */
+int SL_Empty(SList, list)
+{
+	PNode p;
+	p = list;
+	if(p->next == NULL )
+		return1;
+	return 0;
+}
 
+/*
+ int SL_Size(SList list) 
+ 参数 
+ list：要查找的单链表 
+ 返回值 
+ 返回包含节点的个数。 
+ 功能 
+ 该函数的功能是返回链表list中节点的个数，包含头节点。
+ * */
+int SL_Size(SList, list)
+{
+	PNode p;
+	int i;
+	p = list;
+	i = 0;
+	while(p!=NULL)
+	{
+		p = p->nest;
+		i++;
+	}
+	return i;
+}
+/*
+ nt SL_Clear(SList *p_list) 
+ 参数 
+ p_list：指向要清除的单链表 
+ 返回值 
+ 成功返回值为1。 
+ 功能 
+ 该函数的功能是清除链表的所有节点，包含头节点。 *
+ * */
+int SL_Clear(SList, *p_list)
+{
+	PNode p, q;
+	int i;
+	p = *p_list;
+	i = 0;
+	while(p!=NULL)
+	{
+		q = p->next;
+		free(p);
+		p = q;
+	}
+	*p_list =NULL;
+	return 1;
+}
