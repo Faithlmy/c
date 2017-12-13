@@ -54,7 +54,7 @@ pNode T_LinkCreate(x)
 	}
 	return h;
 }
-
+//以标志位结束
 pNode F_LinkCreate()
 {
 	Node *r, *s, *h;
@@ -78,6 +78,21 @@ pNode F_LinkCreate()
 		}
 	}
 	return h;
+}
+
+//统计链表的长度
+pNode Link_Length(Node *L)
+{
+	int i;
+	Node *p;
+	i = 0;
+	p = L -> next;
+	while(p != NULL)
+	{
+		p = p -> next;
+		i++;
+	}
+	return i;
 }
 
 //按序号查找

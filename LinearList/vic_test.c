@@ -2,7 +2,8 @@
 #include "vic_list.h"
 void main()
 {
-	int i;
+	int i,j;
+	j = 0;
 	//int *n;
 	pNode list, start, n;
 	printf("please input number of node, and push Enter: ");
@@ -16,4 +17,6 @@ void main()
 		 printf("%d\n", start -> data);
 		 start = start -> next;
 	}
+	j = Link_Length(list);
+	printf("length = %d\n", j);
 }
