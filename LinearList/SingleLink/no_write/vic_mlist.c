@@ -130,3 +130,28 @@ pNode ListLength(Node *L)
 	}
 return j;
 }
+
+//删除单链表位置i上的元素：
+pNode Delete_List(Node *L, int i)
+{
+	Node *pre, *r;
+	int k;
+	pre = L;
+	k = 0;
+	//找被删除的节点
+	while(pre -> next != NULL && k < i-1)
+	{
+		pre = pre -> next;
+		k = k+1;
+	}
+	if (!(pre -> next))
+	{
+		printf("The site is error!");
+		return ERROR;
+	}
+	r = pre -> next;
+	pre -> next = r -> next;
+	free(r);
+	return ok;
+
+}
