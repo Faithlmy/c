@@ -116,4 +116,17 @@ pNode Find(Node *L, int i)
 	else 
 		return NULL;
 }
-
+//求单链表的长度：
+pNode ListLength(Node *L)
+{
+	int j;
+	Node *p;
+	p = l -> next;
+	j = 0;
+	while(p!=NULL)
+	{
+		p = p -> next;
+		j++;
+	}
+return j;
+}
