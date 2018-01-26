@@ -10,4 +10,10 @@ typedef struct DNode
 DoubleList InitDoubleList(void);
 //打印链表
 void TraverseDoubleList(DoubleList DHead);
+//判断是否为空链表
+int IsEmptyDoubleList(DoubleList DHead);
+//计算链表的长度
+int GetLengthDoubleList(DoubleList DHead);
+//双链表的插入
+int InsertDoubleList(DoubleList DHead, int pos, int data);
 #endif

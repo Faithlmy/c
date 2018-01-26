@@ -50,3 +50,58 @@ void TraverseDoubleList(DoubleList DHead)
 	}
 	printf("\n");
 }
+//判断是否为空链表
+int IsEmptyDoubleList(DoubleList DHead)
+{
+	DoubleList dh = DHead -> next;
+	if(dh == NULL)
+		return 1;
+	else
+		return 0;
+}
+//计算链表的长度
+int GetLengthDoubleList(DoubleList DHead)
+{
+	int length = 0;
+	DoubleList dh = DHead -> next;
+	while(dh != NULL)
+		{
+			length++;
+			dh = dh -> next;
+		}
+		return length;
+}
+//双链表的插入
+int InsertDoubleList(DoubleList DHead, int pos, int data)
+{
+	DoubleList dh = NULL, d_new = NULL;
+	if(pos > 0 && pos < GetLengthDoubleList(DHead) + 2)
+	{
+		d_new = (DoubleList)malloc(sizeof(DHead));
+		if(d_new == NULL)
+		{
+			printf("内存分配失败！");
+			exit(EXIT_FAILURE);
+		}
+		while(1)
+		{
+			pos--;
+			if(pos == 0)
+			{
+				break;	
+			}
+			DHead = DHead -> next;
+		}
+		printf("1");
+		d_new -> data = data;
+		d_new -> prior = dh -> prior;
+//		if(dh != NULL)
+//		{
+			dh -> prior -> next = d_new;
+//		}
+		d_new -> next = dh;
+		return 1;
+	}
+	else
+		return 0;
+}
